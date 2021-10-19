@@ -1,0 +1,68 @@
+Git:
+
+Rule:
+use first and last name in git commits instead of Windows ID, add email address
+Reason: 
+with the first and last name, the author can be found faster than by the id
+Example:
+git config --global user.email "john.smith@company.com"
+git config --global user.name "John Smith"
+
+
+Rule:
+add the jira ticket number in each commit (in prefix)
+Reason:
+- entering the jira ticket number acts as documentation of the change
+- allows to determine the business reason for which the code was created
+- in the case of github integration with jira it is possible to previewing commited changes direct in jira task
+
+Example:
+git commit -m "JIRA-123456 Commit message"
+
+
+Rule:
+add type of change (feature, hotfix) as a folder in each new branch
+Reason:
+Hierarchical branch folders are an effective way to keep the repository clean and organized.
+All temporary branches (branches which can be deleted after merging) should be stored in folders, all permanent branches (e.g. master) should be placed without folders.
+
+Example:
+git checkout -b feature/JIRA-123456
+git checkout -b hotfix/JIRA-123456
+
+Rule:
+add type of change (feature, hotfix) as a folder in each new branch
+Reason:
+Hierarchical branch folders are an effective way to keep the repository clean and organized.
+All temporary branches (branches which can be deleted after merging) should be stored in folders, all permanent branches (e.g. master) should be placed without folders.
+
+Example:
+git checkout -b feature/JIRA-123456
+git checkout -b hotfix/JIRA-123456
+
+
+Rule:
+delete feature branch after merging with the target branch
+
+Reason:
+Removing merged branches keeps the repository clean.
+Example:
+git push origin --delete feature/JIRA-123456
+
+
+Rule:
+do not commit directly to the target branch.
+Reason:
+All changes must be approved by the reviewers during PR checking
+
+Rule:
+(In the case of more than one commit in the branch) Don't rebase your commits from feature branch to the master branch
+Reason:
+Performing a rebase makes it very difficult to track the history of changes in the target branches.
+In the case of rebasing a branch with a significant number of commits, it becomes difficult to roll back the changes.
+
+
+
+
+Formatting and Indentation: 
+- the code should be written in a standardized format,
